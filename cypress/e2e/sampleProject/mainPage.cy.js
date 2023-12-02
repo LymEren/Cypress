@@ -5,21 +5,21 @@ describe('General test automation scenario', () => {
         cy.visit('https://automationexercise.com/')
         cy.viewport(1500, 1000)
       });
-    it('Login', () => {
+    it('Adding items to shopping cart', () => {
         cy.xpath(mainPage.textLogin).click()
-        cy.xpath('(//input[@name ="email"])[1]').type('qakyhu@imagepoet.net')
-        cy.xpath('(//input[@name ="password"])[1]').type('Abc1234!')
-        cy.xpath('//button[text() ="Login"]').click()
+        cy.xpath(mainPage.inputEmail).type('qakyhu@imagepoet.net')
+        cy.xpath(mainPage.inputPassword).type('Abc1234!')
+        cy.xpath().click()
 
         cy.log('Checking offer price.')
-        cy.xpath('(//h2[following-sibling::p[contains(text(), "Blue Top")]])[1]')
+        cy.xpath(mainPage.blueTopPrice)
         .should('be.visible').invoke('text')
         .then(text => {
             if (text== 'Rs. 500'){
                 cy.log('Text content is correct.')
-                cy.xpath('(//h2[following-sibling::p[contains(text(), "Blue Top")]])[1]/following-sibling::a').click()
-                cy.xpath('//*[text()="Added!"]').should('be.visible')
-                cy.xpath('//*[text()="Continue Shopping"]').click()
+                cy.xpath(mainPage.buttonBlueTopAddBasket).click()
+                cy.xpath().should('be.visible')
+                cy.xpath().click()
             }
             else {
                 cy.log('Text content is incorrect. Please check related offer')
