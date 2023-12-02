@@ -1,3 +1,3 @@
-Includes test cases using the Cypress
+This repository contains the test automation project with Cypress
 
 Eyyub Eren
