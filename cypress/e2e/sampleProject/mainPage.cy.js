@@ -29,10 +29,12 @@ describe('General test automation scenario', () => {
                 cy.xpath(mainPage.textShoppingCardEmpty).should('be.visible')
                 cy.xpath(mainPage.buttonClickHere).click()
                 cy.xpath(mainPage.textAllProducts).should('be.visible')
-                cy.screenshot('my-screenshot', { path: 'cypress/e2e/sampleProject/screenShots/' });
+
             }
             else {
                 cy.log('Text content is incorrect. Please check related offer')
+                cy.screenshot('blueTopItemFail', { capture: 'viewport'});
+
             }
         
         
