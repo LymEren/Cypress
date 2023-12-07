@@ -2,7 +2,7 @@ import mainPage, { locatorMainPage } from "./locatorMainPage.cy";
 
 describe('General test automation scenario', () => {
     beforeEach(() => {
-        cy.visit('https://automationexercise.com/')
+        cy.visit(Cypress.env('automationExercise'))
         cy.viewport(1500, 1000)
       });
     it('Adding items to shopping cart', () => {
